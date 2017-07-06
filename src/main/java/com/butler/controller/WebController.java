@@ -3,6 +3,7 @@ package com.butler.controller;
 import com.butler.model.*;
 import com.butler.repo.ButlerUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,13 +34,13 @@ public class WebController {
 
 	@RequestMapping("user/findall")
 	public String findAllUser(){
-		String result = "<html>";
+		String result = "";
 
 		for(ButlerUser user : butlerUserRepository.findAll()){
-			result += "<div>" + user.toString() + "</div>";
+			result += user.toString();
 		}
 
-		return result + "</html>";
+		return result;
 	}
 	
 	@RequestMapping("customer/findbyid")
